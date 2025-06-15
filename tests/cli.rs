@@ -100,6 +100,7 @@ fn gen_bad_file() -> String {
 fn dies_bad_file() -> Result<()> {
     let bad = gen_bad_file();
     let expected = format!("{bad}: .* [(]os error 2[)]");
+    println!("Expected: {}", expected);
     Command::cargo_bin(PRG)?
         .arg(bad)
         .assert()
